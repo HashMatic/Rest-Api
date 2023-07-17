@@ -1,5 +1,3 @@
-# views.py
-
 import nltk
 from nltk.corpus import stopwords
 from rest_framework.decorators import api_view
