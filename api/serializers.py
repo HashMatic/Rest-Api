@@ -1,14 +1,12 @@
 from rest_framework import serializers
-from django.core.exceptions import ValidationError
-from django.core import validators
+from .models import Resume
 
-class ResumeSerializer(serializers.Serializer):
-    user_name = serializers.CharField(max_length=100)
-    email = serializers.EmailField()
-    contact_details = serializers.CharField(max_length=100)
-    resume = serializers.FileField(allow_empty_file=False, validators=[validators.FileExtensionValidator(allowed_extensions=['pdf'])])
+class ResumeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resume
+        fields = ['user_name', 'email', 'contact_details', 'resume']
 
     def validate_resume(self, value):
         if not value.name.endswith('.pdf'):
-            raise ValidationError("File must be in PDF format.")
+            raise serializers.ValidationError("Resume must be in PDF format.")
         return value

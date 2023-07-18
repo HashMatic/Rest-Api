@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import ResumeAPIView
+from .views import views
 
 urlpatterns = [
-    path('resume/', ResumeAPIView.as_view(), name='resume_api'),
+    path('resumes/',views.resume_list),
 ]
