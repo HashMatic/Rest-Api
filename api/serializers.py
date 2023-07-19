@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import User
+from .models import UserProfile
 
-class UserSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = UserProfile
         fields = ['user_name', 'email', 'contact_details', 'resume']
 
     def validate_resume(self, resume):
@@ -11,4 +11,3 @@ class UserSerializer(serializers.ModelSerializer):
         if not resume.name.lower().endswith('.pdf'):
             raise serializers.ValidationError("Resume must be in PDF format.")
         return resume
-
