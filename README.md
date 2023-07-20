@@ -71,53 +71,66 @@ In Postman, you can use different HTTP methods to perform GET, PUT, PATCH, and D
 
 1.GET Request:
 
-.Set the request type to GET.
-.Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). For example:
+i).Set the request type to GET.
+
+ii).Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). For example:
   .Fetch all profiles: http://localhost:8000/profiles/
   .Fetch a specific profile (replace <pk> with the profile's primary key): http://localhost:8000/profiles/<pk>/
-.Click on the "Send" button to make the GET request and view the response data.
+
+iii).Click on the "Send" button to make the GET request and view the response data.
 
 2.POST Request:
 
-.Set the request type to POST.
-.Enter the URL to create a new user profile: http://localhost:8000/profiles/
-.Go to the "Body" tab, select "form-data," and add the following key-value pairs for the new profile:
+i).Set the request type to POST.
+
+ii).Enter the URL to create a new user profile: http://localhost:8000/profiles/
+
+iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs for the new profile:
   .user_name: [Your desired user name]
   .email: [Your email address]
   .contact_details: [Contact details]
   .resume: [Select a .pdf file using the "Choose Files" button]
-.Click on the "Send" button to make the POST request and create a new user profile.
+
+iv).Click on the "Send" button to make the POST request and create a new user profile.
 
 3.PUT Request:
 
-.Set the request type to PUT.
-.Enter the URL to update an existing user profile with its primary key (pk). For example:
+i).Set the request type to PUT.
+
+ii).Enter the URL to update an existing user profile with its primary key (pk). For example:
   .http://localhost:8000/profiles/<pk>/
-.Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
+
+iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
   .user_name: [Updated user name]
   .email: [Updated email address]
   .contact_details: [Updated contact details]
   .resume: [Select a new .pdf file using the "Choose Files" button to update the resume]
-.Click on the "Send" button to make the PUT request and update the user profile.
+
+iv).Click on the "Send" button to make the PUT request and update the user profile.
 
 4.PATCH Request:
 
-.Set the request type to PATCH.
-.Enter the URL to partially update an existing user profile with its primary key (pk). For example:
+i).Set the request type to PATCH.
+
+ii).Enter the URL to partially update an existing user profile with its primary key (pk). For example:
   .http://localhost:8000/profiles/<pk>/
-.Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
+
+iii).Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
   .user_name: [Updated user name]
   .email: [Updated email address]
   .contact_details: [Updated contact details]
   .resume: [Select a new .pdf file using the "Choose Files" button to update the resume if needed]
-.Click on the "Send" button to make the PATCH request and partially update the user profile.
+
+iv).Click on the "Send" button to make the PATCH request and partially update the user profile.
 
 5.DELETE Request:
 
-.Set the request type to DELETE.
-.Enter the URL to delete an existing user profile with its primary key (pk). For example:
+i).Set the request type to DELETE.
+
+ii).Enter the URL to delete an existing user profile with its primary key (pk). For example:
   .http://localhost:8000/profiles/<pk>/
-.Click on the "Send" button to make the DELETE request and delete the user profile.
+
+iii).Click on the "Send" button to make the DELETE request and delete the user profile.
 
 b.Open your MySQL Workbench and verify the following request are adding in your database.
 
@@ -181,6 +194,7 @@ The API validates the uploaded resume to ensure it is in PDF format, using custo
 
 ## Contributing and License
 i).Users and developers are encouraged to contribute to the project by opening issues, suggesting new features, or submitting pull requests with improvements.
+
 ii).The project is licensed under the MIT License, allowing users to use, modify, and distribute the code with proper attribution and a copy of the license.
 
 The code follows best practices for building a robust and secure Django REST API for user profile management. It can be further extended and adapted to fit various use cases and integrate with other systems as needed.
