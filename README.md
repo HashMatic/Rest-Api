@@ -73,9 +73,13 @@ In Postman, you can use different HTTP methods to perform GET, PUT, PATCH, and D
 
 i).Set the request type to GET.
 
-ii).Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). For example:
-  .Fetch all profiles: http://localhost:8000/profiles/
-  .Fetch a specific profile (replace <pk> with the profile's primary key): http://localhost:8000/profiles/<pk>/
+ii).Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). 
+
+For example:
+  
+Fetch all profiles: http://localhost:8000/profiles/
+
+Fetch a specific profile (replace <pk> with the profile's primary key): http://localhost:8000/profiles/<pk>/
 
 iii).Click on the "Send" button to make the GET request and view the response data.
 
@@ -86,10 +90,14 @@ i).Set the request type to POST.
 ii).Enter the URL to create a new user profile: http://localhost:8000/profiles/
 
 iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs for the new profile:
-  .user_name: [Your desired user name]
-  .email: [Your email address]
-  .contact_details: [Contact details]
-  .resume: [Select a .pdf file using the "Choose Files" button]
+  
+  user_name: [Your desired user name]
+  
+  email: [Your email address]
+  
+  contact_details: [Contact details]
+  
+  resume: [Select a .pdf file using the "Choose Files" button]
 
 iv).Click on the "Send" button to make the POST request and create a new user profile.
 
@@ -97,14 +105,19 @@ iv).Click on the "Send" button to make the POST request and create a new user pr
 
 i).Set the request type to PUT.
 
-ii).Enter the URL to update an existing user profile with its primary key (pk). For example:
-  .http://localhost:8000/profiles/<pk>/
+ii).Enter the URL to update an existing user profile with its primary key (pk). 
+
+For example:http://localhost:8000/profiles/<pk>/
 
 iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
-  .user_name: [Updated user name]
-  .email: [Updated email address]
-  .contact_details: [Updated contact details]
-  .resume: [Select a new .pdf file using the "Choose Files" button to update the resume]
+
+  user_name: [Updated user name]
+
+  email: [Updated email address]
+  
+  contact_details: [Updated contact details]
+  
+  resume: [Select a new .pdf file using the "Choose Files" button to update the resume]
 
 iv).Click on the "Send" button to make the PUT request and update the user profile.
 
@@ -112,14 +125,19 @@ iv).Click on the "Send" button to make the PUT request and update the user profi
 
 i).Set the request type to PATCH.
 
-ii).Enter the URL to partially update an existing user profile with its primary key (pk). For example:
-  .http://localhost:8000/profiles/<pk>/
+ii).Enter the URL to partially update an existing user profile with its primary key (pk).
+
+For example:http://localhost:8000/profiles/<pk>/
 
 iii).Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
-  .user_name: [Updated user name]
-  .email: [Updated email address]
-  .contact_details: [Updated contact details]
-  .resume: [Select a new .pdf file using the "Choose Files" button to update the resume if needed]
+  
+  user_name: [Updated user name]
+  
+  email: [Updated email address]
+  
+  contact_details: [Updated contact details]
+  
+  resume: [Select a new .pdf file using the "Choose Files" button to update the resume if needed]
 
 iv).Click on the "Send" button to make the PATCH request and partially update the user profile.
 
@@ -127,8 +145,9 @@ iv).Click on the "Send" button to make the PATCH request and partially update th
 
 i).Set the request type to DELETE.
 
-ii).Enter the URL to delete an existing user profile with its primary key (pk). For example:
-  .http://localhost:8000/profiles/<pk>/
+ii).Enter the URL to delete an existing user profile with its primary key (pk). 
+
+For example:http://localhost:8000/profiles/<pk>/
 
 iii).Click on the "Send" button to make the DELETE request and delete the user profile.
 
