@@ -1,7 +1,7 @@
 
  # Django User Profile Management Api
 
-The Django User Profile Management API is a web application built using the Django framework and Django REST framework.A web application built to manage user profiles and their resumes. It provides a RESTful API that allows clients to perform CRUD operations on user profiles,including user name, email, contact details, and resume files.It allows users to create, view, update, and delete user profiles, including their resumes in PDF format.Users can interact with the API through HTTP requests using tools like Postman or by integrating it into their own applications.
+The Django User Profile Management API is a web application built to manage user profiles and their resumes. It provides a RESTful API that allows clients to perform CRUD operations on user profiles, including creating new profiles, retrieving existing profiles, updating profile information, and deleting profiles. Users can interact with the API through HTTP requests using tools like Postman or by integrating it into their own applications.
 
 
 
@@ -80,9 +80,9 @@ PATCH /profiles/<profile_id>/ : Partially update an existing user profile by pro
 DELETE /profiles/<profile_id>/ : Delete a user profile identified by its profile ID.
 ```
 ## Roadmap
-To use the API, follow these steps:
+To use the Project,follow these steps:
 
-  1.Clone the project repository and set up a virtual environment.
+  1.Clone the project repository and set up a virtual environment.(Optional)
 
   2.Install the required packages using pip install -r requirements.txt.
 
@@ -109,8 +109,8 @@ a).GET Request:
   
  Fetch all profiles: http://localhost:8000/profiles/
 
- Fetch a specific profile (replace <pk> with the profile's primary key): 
-  http://localhost:8000/profiles/<pk>/
+ Fetch a specific profile (replace (pk) with the profile's primary key): 
+  http://localhost:8000/profiles/(pk)/
 
  iii).Click on the "Send" button to make the GET request and view the response data.
 
@@ -139,7 +139,7 @@ c).PUT Request:
 
  ii).Enter the URL to update an existing user profile with its primary key (pk). 
 
-  For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/(pk)/
 
  iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
 
@@ -159,7 +159,7 @@ d).PATCH Request:
 
  ii).Enter the URL to partially update an existing user profile with its primary key (pk).
 
-  For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/(pk)/
 
  iii).Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
   
@@ -179,7 +179,7 @@ e).DELETE Request:
 
  ii).Enter the URL to delete an existing user profile with its primary key (pk). 
 
-  For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/(pk)/
 
  iii).Click on the "Send" button to make the DELETE request and delete the user profile.
 
