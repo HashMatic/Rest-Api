@@ -71,85 +71,87 @@ In Postman, you can use different HTTP methods to perform GET, PUT, PATCH, and D
 
 1.GET Request:
 
-i).Set the request type to GET.
+ i).Set the request type to GET.
 
-ii).Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). 
+ ii).Enter the URL to fetch all user profiles or a specific profile with its primary key (pk). 
 
-For example:
+ For example:
   
-Fetch all profiles: http://localhost:8000/profiles/
+ Fetch all profiles: http://localhost:8000/profiles/
 
-Fetch a specific profile (replace <pk> with the profile's primary key): http://localhost:8000/profiles/<pk>/
+ Fetch a specific profile (replace <pk> with the profile's primary key): 
+  http://localhost:8000/profiles/<pk>/
 
-iii).Click on the "Send" button to make the GET request and view the response data.
+ iii).Click on the "Send" button to make the GET request and view the response data.
 
 2.POST Request:
 
-i).Set the request type to POST.
+ i).Set the request type to POST.
 
-ii).Enter the URL to create a new user profile: http://localhost:8000/profiles/
+ ii).Enter the URL to create a new user profile:
+   http://localhost:8000/profiles/
 
-iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs for the new profile:
+ iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs for the new profile:
   
-  user_name: [Your desired user name]
+    user_name: [Your desired user name]
   
-  email: [Your email address]
+    email: [Your email address]
   
-  contact_details: [Contact details]
+    contact_details: [Contact details]
   
-  resume: [Select a .pdf file using the "Choose Files" button]
+    resume: [Select a .pdf file using the "Choose Files" button]
 
-iv).Click on the "Send" button to make the POST request and create a new user profile.
+ iv).Click on the "Send" button to make the POST request and create a new user profile.
 
 3.PUT Request:
 
-i).Set the request type to PUT.
+ i).Set the request type to PUT.
 
-ii).Enter the URL to update an existing user profile with its primary key (pk). 
+ ii).Enter the URL to update an existing user profile with its primary key (pk). 
 
-For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/<pk>/
 
-iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
+ iii).Go to the "Body" tab, select "form-data," and add the following key-value pairs to update the profile:
 
-  user_name: [Updated user name]
+    user_name: [Updated user name]
 
-  email: [Updated email address]
+    email: [Updated email address]
   
-  contact_details: [Updated contact details]
+    contact_details: [Updated contact details]
   
-  resume: [Select a new .pdf file using the "Choose Files" button to update the resume]
+    resume: [Select a new .pdf file using the "Choose Files" button to update the resume]
 
-iv).Click on the "Send" button to make the PUT request and update the user profile.
+ iv).Click on the "Send" button to make the PUT request and update the user profile.
 
 4.PATCH Request:
 
-i).Set the request type to PATCH.
+ i).Set the request type to PATCH.
 
-ii).Enter the URL to partially update an existing user profile with its primary key (pk).
+ ii).Enter the URL to partially update an existing user profile with its primary key (pk).
 
-For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/<pk>/
 
-iii).Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
+ iii).Go to the "Body" tab, select "form-data," and add the key-value pairs you want to update:
   
-  user_name: [Updated user name]
+    user_name: [Updated user name]
   
-  email: [Updated email address]
+    email: [Updated email address]
   
-  contact_details: [Updated contact details]
+    contact_details: [Updated contact details]
   
-  resume: [Select a new .pdf file using the "Choose Files" button to update the resume if needed]
+    resume: [Select a new .pdf file using the "Choose Files" button to update the resume if needed]
 
-iv).Click on the "Send" button to make the PATCH request and partially update the user profile.
+ iv).Click on the "Send" button to make the PATCH request and partially update the user profile.
 
 5.DELETE Request:
 
-i).Set the request type to DELETE.
+ i).Set the request type to DELETE.
 
-ii).Enter the URL to delete an existing user profile with its primary key (pk). 
+ ii).Enter the URL to delete an existing user profile with its primary key (pk). 
 
-For example:http://localhost:8000/profiles/<pk>/
+  For example:http://localhost:8000/profiles/<pk>/
 
-iii).Click on the "Send" button to make the DELETE request and delete the user profile.
+ iii).Click on the "Send" button to make the DELETE request and delete the user profile.
 
 b.Open your MySQL Workbench and verify the following request are adding in your database.
 
