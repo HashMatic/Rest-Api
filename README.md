@@ -160,9 +160,9 @@ class UserProfile(models.Model):
     contact_details = models.CharField(max_length=100)
     resume = models.FileField(upload_to='resumes/')
 ```
-In the models.py file, we have defined the UserProfile model. This model represents the user profiles in the API. It has four fields: user_name, email, contact_details, and resume. Each field is represented by the appropriate Django model field, such as CharField and FileField. 
+ - In the models.py file, we have defined the UserProfile model. This model represents the user profiles in the API. It has four fields: user_name, email, contact_details, and resume. Each field is represented by the appropriate Django model field, such as CharField and FileField. 
 
-resume = models.FileField(upload_to='resumes/'): This line defines the resume field as a FileField in the UserProfile model. The upload_to attribute specifies the directory where uploaded resumes will be stored on the server. In this case, uploaded resumes will be stored in the resumes/ directory inside the media root (defined in Django settings).
+ - resume = models.FileField(upload_to='resumes/'): This line defines the resume field as a FileField in the UserProfile model. The upload_to attribute specifies the directory where uploaded resumes will be stored on the server. In this case, uploaded resumes will be stored in the resumes/ directory inside the media root (defined in Django settings).
 
 2.Serializers (serializers.py):
 
@@ -182,13 +182,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return resume
 
 ```
-In the serializers.py file, we have defined the UserProfileSerializer class. This serializer converts the UserProfile model instances into JSON format and vice versa. The Meta class specifies the model to be serialized (UserProfile) and includes all fields.
+ - In the serializers.py file, we have defined the UserProfileSerializer class. This serializer converts the UserProfile model instances into JSON format and vice versa. The Meta class specifies the model to be serialized (UserProfile) and includes all fields.
 
-class UserProfileSerializer(serializers.ModelSerializer):: This line defines the UserProfileSerializer class, which is a subclass of serializers.ModelSerializer. It is responsible for converting UserProfile model instances to and from JSON format.
+ - class UserProfileSerializer(serializers.ModelSerializer):: This line defines the UserProfileSerializer class, which is a subclass of serializers.ModelSerializer. It is responsible for converting UserProfile model instances to and from JSON format.
 
-fields =['user_name', 'email', 'contact_details', 'resume']: This ensures that all fields (user_name, email, contact_details, resume) will be serialized when interacting with the API.
+ - fields =['user_name', 'email', 'contact_details', 'resume']: This ensures that all fields (user_name, email, contact_details, resume) will be serialized when interacting with the API.
 
-def validate_resume(self, value):: This line defines a custom validation method for the resume field. It validates the uploaded resume to ensure that it is in PDF format. If the uploaded file does not end with .pdf, a serializers.ValidationError is raised, indicating that the resume must be in PDF format.
+ - def validate_resume(self, value):: This line defines a custom validation method for the resume field. It validates the uploaded resume to ensure that it is in PDF format. If the uploaded file does not end with .pdf, a serializers.ValidationError is raised, indicating that the resume must be in PDF format.
 
 3.Views (views.py):
 
@@ -248,39 +248,39 @@ class UserProfileDetailAPIView(APIView):
     
 ```
 
-Class-based views are used to handle different HTTP methods for the API endpoints. Each view function corresponds to a specific HTTP method (GET, POST, PUT, PATCH, DELETE) and performs CRUD operations on user profiles.
+ - Class-based views are used to handle different HTTP methods for the API endpoints. Each view function corresponds to a specific HTTP method (GET, POST, PUT, PATCH, DELETE) and performs CRUD operations on user profiles.
 
-class UserProfileListAPIView(APIView):: This line defines the UserProfileListAPIView class, which is a subclass of APIView. It handles the /profiles/ endpoint for listing all user profiles (GET) and creating new profiles (POST).
+ - class UserProfileListAPIView(APIView):: This line defines the UserProfileListAPIView class, which is a subclass of APIView. It handles the /profiles/ endpoint for listing all user profiles (GET) and creating new profiles (POST).
 
-profiles = UserProfile.objects.all(): This line retrieves all UserProfile objects from the database using the Django ORM. The UserProfile model's manager, objects, allows us to interact with the database and fetch all the profile objects.
+ - profiles = UserProfile.objects.all(): This line retrieves all UserProfile objects from the database using the Django ORM. The UserProfile model's manager, objects, allows us to interact with the database and fetch all the profile objects.
 
-serializer = UserProfileSerializer(profiles, many=True): This line creates an instance of the UserProfileSerializer and passes the profiles queryset as the data to be serialized. The many=True argument indicates that we are serializing multiple instances (profiles) rather than a single instance.
+ - serializer = UserProfileSerializer(profiles, many=True): This line creates an instance of the UserProfileSerializer and passes the profiles queryset as the data to be serialized. The many=True argument indicates that we are serializing multiple instances (profiles) rather than a single instance.
 
-return Response(serializer.data): This line returns the serialized data in JSON format as the response to the client's GET request. The serializer.data contains the serialized representation of all user profiles in the database.
+ - return Response(serializer.data): This line returns the serialized data in JSON format as the response to the client's GET request. The serializer.data contains the serialized representation of all user profiles in the database.
 
-def post(self, request):: This method handles the POST request to create a new user profile. The request.data contains the data sent by the client in the request body.
+ - def post(self, request):: This method handles the POST request to create a new user profile. The request.data contains the data sent by the client in the request body.
 
-serializer = UserProfileSerializer(data=request.data): This line creates an instance of UserProfileSerializer and passes the request.data as the data to be deserialized. It attempts to convert the JSON data from the request into a valid UserProfile object.
+ - serializer = UserProfileSerializer(data=request.data): This line creates an instance of UserProfileSerializer and passes the request.data as the data to be deserialized. It attempts to convert the JSON data from the request into a valid UserProfile object.
 
-if serializer.is_valid():: This line checks if the deserialized data is valid according to the serializer's validation rules.
+ - if serializer.is_valid():: This line checks if the deserialized data is valid according to the serializer's validation rules.
 
-serializer.save(): This line saves the validated UserProfile instance to the database.
+ - serializer.save(): This line saves the validated UserProfile instance to the database.
 
-return Response(serializer.data, status=status.HTTP_201_CREATED): If the data is valid and the profile is successfully created, this line returns the serialized data of the created profile as the response with a status code 201 CREATED. The serializer.data contains the serialized representation of the created profile.
+ - return Response(serializer.data, status=status.HTTP_201_CREATED): If the data is valid and the profile is successfully created, this line returns the serialized data of the created profile as the response with a status code 201 CREATED. The serializer.data contains the serialized representation of the created profile.
 
-return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST): If the data is invalid and cannot be deserialized, this line returns the serializer errors as the response with a status code 400 BAD REQUEST. The errors contain information about what validation rules failed.
+ - return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST): If the data is invalid and cannot be deserialized, this line returns the serializer errors as the response with a status code 400 BAD REQUEST. The errors contain information about what validation rules failed.
 
-class UserProfileDetailAPIView(APIView):: This line defines the UserProfileDetailAPIView class, which is a subclass of APIView. It handles the /profiles/<int:pk>/ endpoint for retrieving, updating, and deleting individual user profiles.
+ - class UserProfileDetailAPIView(APIView):: This line defines the UserProfileDetailAPIView class, which is a subclass of APIView. It handles the /profiles/<int:pk>/ endpoint for retrieving, updating, and deleting individual user profiles.
 
-def get_object(self, pk):: This method is a helper function used to retrieve the UserProfile instance based on the primary key (pk) provided in the URL. If the profile with the specified pk does not exist, it raises a status.HTTP_404_NOT_FOUND exception.
+ - def get_object(self, pk):: This method is a helper function used to retrieve the UserProfile instance based on the primary key (pk) provided in the URL. If the profile with the specified pk does not exist, it raises a status.HTTP_404_NOT_FOUND exception.
 
-def get(self, request, pk):: This method handles the GET request to retrieve a specific user profile. It uses the get_object() method to fetch the profile from the database, serializes it using the UserProfileSerializer, and returns the serialized data as the response.
+ - def get(self, request, pk):: This method handles the GET request to retrieve a specific user profile. It uses the get_object() method to fetch the profile from the database, serializes it using the UserProfileSerializer, and returns the serialized data as the response.
 
-def put(self, request, pk):: This method handles the PUT request to update the entire user profile identified by pk. It retrieves the profile from the database using the get_object() method, deserializes the updated data from the request using the UserProfileSerializer, and saves the updated profile to the database. If the data is valid, it returns the serialized data of the updated profile as the response.
+ - def put(self, request, pk):: This method handles the PUT request to update the entire user profile identified by pk. It retrieves the profile from the database using the get_object() method, deserializes the updated data from the request using the UserProfileSerializer, and saves the updated profile to the database. If the data is valid, it returns the serialized data of the updated profile as the response.
 
-def patch(self, request, pk):: This method handles the PATCH request to update specific fields of the user profile identified by pk. It is similar to the put() method but allows partial updates. The partial=True argument in the serializer indicates that only the fields provided in the request will be updated, not the entire object.
+ - def patch(self, request, pk):: This method handles the PATCH request to update specific fields of the user profile identified by pk. It is similar to the put() method but allows partial updates. The partial=True argument in the serializer indicates that only the fields provided in the request will be updated, not the entire object.
 
-def delete(self, request, pk):: This method handles the DELETE request to delete the user profile identified by pk. It retrieves the profile from the database using the get_object() method and then deletes it from the database. It returns a status.HTTP_204_NO_CONTENT response, indicating that the deletion was successful.
+ - def delete(self, request, pk):: This method handles the DELETE request to delete the user profile identified by pk. It retrieves the profile from the database using the get_object() method and then deletes it from the database. It returns a status.HTTP_204_NO_CONTENT response, indicating that the deletion was successful.
 
 4.URLs (urls.py):
 
@@ -294,26 +294,26 @@ urlpatterns = [
     path('profiles/<int:pk>/', UserProfileDetailAPIView.as_view(), name='profile-detail'),
 ]
 ```
-In the urls.py file, we have defined URL patterns that map API endpoints to their corresponding views. For example, the /profiles/ endpoint is handled by the UserProfileListAPIView, and the /profiles/<int:pk>/ endpoint (where <int:pk> is the profile's primary key) is handled by the UserProfileDetailAPIView.
+ - In the urls.py file, we have defined URL patterns that map API endpoints to their corresponding views. For example, the /profiles/ endpoint is handled by the UserProfileListAPIView, and the /profiles/<int:pk>/ endpoint (where <int:pk> is the profile's primary key) is handled by the UserProfileDetailAPIView.
 
 
 5.Authentication (settings.py):
 
-Token-based authentication is enabled in the Django settings to secure certain API endpoints. Users can obtain an access token by sending their credentials to /api/token/.
+ - Token-based authentication is enabled in the Django settings to secure certain API endpoints. Users can obtain an access token by sending their credentials to /api/token/.
 
 Main Functionality:
 
 1.Listing and Creating Profiles:
 
-The API allows users to fetch a list of all user profiles (GET /profiles/) and create a new profile (POST /profiles/) by providing necessary data, including the resume in PDF format.
+ - The API allows users to fetch a list of all user profiles (GET /profiles/) and create a new profile (POST /profiles/) by providing necessary data, including the resume in PDF format.
 
 2.Retrieve, Update, and Delete Profiles:
 
-Users can retrieve a specific user profile (GET /profiles/<profile_id>/),update the profile data (PUT /profiles/<profile_id>/), or partially update specific fields (PATCH /profiles/<profile_id>/) identified by the profile's ID. Deleting a profile is possible using the DELETE request to /profiles/<profile_id>/.
+ - Users can retrieve a specific user profile (GET /profiles/<profile_id>/),update the profile data (PUT /profiles/<profile_id>/), or partially update specific fields (PATCH /profiles/<profile_id>/) identified by the profile's ID. Deleting a profile is possible using the DELETE request to /profiles/<profile_id>/.
 
 3.Authentication and Security:
 
-Certain API endpoints are protected and require token-based authentication, ensuring that only authorized users can access them. The API validates the uploaded resume to ensure it is in PDF format, using custom validation in the serializer.
+ - Certain API endpoints are protected and require token-based authentication, ensuring that only authorized users can access them. The API validates the uploaded resume to ensure it is in PDF format, using custom validation in the serializer.
 ## Roadmap
 
 
