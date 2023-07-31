@@ -1,6 +1,8 @@
 
 # Django User Profile Management Api
 
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--rAk2-3Xf--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/gz5xantp1vycu7ueleh4.jpg)
+
 The Django User Profile Management API is a web application built to manage user profiles and their resumes. It provides a RESTful API that allows clients to perform CRUD operations on user profiles, including creating new profiles, retrieving existing profiles, updating profile information, and deleting profiles. Users can interact with the API through HTTP requests using tools like Postman or by integrating it into their own applications.
 
 
