@@ -8,16 +8,16 @@ The Django User Profile Management API is a web application built to manage user
 
 ## Table Of Contents
 
- - [Installation] (https://github.com/abhisheksingh-17/Rest-Api#installation)
- - [Configure Django Settings] (https://github.com/abhisheksingh-17/Rest-Api#configure-django-settings)
- - [Acknowledgements] (https://github.com/abhisheksingh-17/Rest-Api#acknowledgements)
- - [Usage] (https://github.com/abhisheksingh-17/Rest-Api#usage)
- - [Technologies Used] (https://github.com/abhisheksingh-17/Rest-Api#technologies-used)
- - [Code Description] (https://github.com/abhisheksingh-17/Rest-Api#code-description)
- - [Roadmap] (https://github.com/abhisheksingh-17/Rest-Api#roadmap)
- - [Screenshots] (https://github.com/abhisheksingh-17/Rest-Api#screenshots)
- - [Future Scope] (https://github.com/abhisheksingh-17/Rest-Api#future-scope)
- - [Contribution & Scope] (https://github.com/abhisheksingh-17/Rest-Api#contribution--license)
+ - [Installation](https://github.com/abhisheksingh-17/Rest-Api#installation)
+ - [Configure Django Settings](https://github.com/abhisheksingh-17/Rest-Api#configure-django-settings)
+ - [Acknowledgements](https://github.com/abhisheksingh-17/Rest-Api#acknowledgements)
+ - [Usage](https://github.com/abhisheksingh-17/Rest-Api#usage)
+ - [Technologies Used](https://github.com/abhisheksingh-17/Rest-Api#technologies-used)
+ - [Code Description](https://github.com/abhisheksingh-17/Rest-Api#code-description)
+ - [Roadmap](https://github.com/abhisheksingh-17/Rest-Api#roadmap)
+ - [Screenshots](https://github.com/abhisheksingh-17/Rest-Api#screenshots)
+ - [Future Scope](https://github.com/abhisheksingh-17/Rest-Api#future-scope)
+ - [Contribution & Scope](https://github.com/abhisheksingh-17/Rest-Api#contribution--license)
 ## Installation
 
 1.Clone the repository to your local machine:
